@@ -128,6 +128,26 @@ export class ShikiSettingsTab extends PluginSettingTab {
 				});
 			});
 
+		new Setting(this.containerEl)
+			.setName('Show line numbers')
+			.setDesc('Show line numbers in code blocks.')
+			.addToggle(toggle => {
+				toggle.setValue(this.plugin.settings.showLineNumbers).onChange(async value => {
+					this.plugin.settings.showLineNumbers = value;
+					await this.plugin.saveSettings();
+				});
+			});
+
+		new Setting(this.containerEl)
+			.setName('Wrap code')
+			.setDesc('Wrap code in code blocks.')
+			.addToggle(toggle => {
+				toggle.setValue(this.plugin.settings.wrap).onChange(async value => {
+					this.plugin.settings.wrap = value;
+					await this.plugin.saveSettings();
+				});
+			});
+
 		new Setting(this.containerEl).setHeading().setName('Language Settings').setDesc('Configure language settings. RESTART REQUIRED AFTER CHANGES.');
 
 		new Setting(this.containerEl)

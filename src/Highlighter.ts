@@ -153,7 +153,8 @@ export class CodeHighlighter {
 			minSyntaxHighlightingColorContrast: 0,
 			themeCssRoot: 'div.expressive-code',
 			defaultProps: {
-				showLineNumbers: false,
+				showLineNumbers: this.plugin.loadedSettings.showLineNumbers,
+				wrap: this.plugin.loadedSettings.wrap,
 			},
 		});
 
