@@ -45,6 +45,8 @@ export class ShikiSettingsTab extends PluginSettingTab {
 				dropdown.setValue(this.plugin.settings.theme).onChange(async value => {
 					this.plugin.settings.theme = value;
 					await this.plugin.saveSettings();
+
+					await this.plugin.reloadHighlighter();
 				});
 			});
 
@@ -115,6 +117,8 @@ export class ShikiSettingsTab extends PluginSettingTab {
 				toggle.setValue(this.plugin.settings.preferThemeColors).onChange(async value => {
 					this.plugin.settings.preferThemeColors = value;
 					await this.plugin.saveSettings();
+
+					await this.plugin.reloadHighlighter();
 				});
 			});
 

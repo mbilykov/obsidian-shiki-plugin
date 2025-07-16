@@ -173,6 +173,8 @@ export class CodeHighlighter {
 			el.remove();
 		}
 		this.ecElements = [];
+
+		this.shiki.dispose();
 	}
 
 	async loadShiki(): Promise<void> {
