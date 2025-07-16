@@ -15,6 +15,7 @@ import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-s
 import { pluginTextMarkers } from '@expressive-code/plugin-text-markers';
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 import { pluginFrames } from '@expressive-code/plugin-frames';
+import { pluginColorChips } from 'expressive-code-color-chips';
 import { getECTheme } from 'src/themes/ECTheme';
 import { normalizePath, Notice } from 'obsidian';
 import { DEFAULT_SETTINGS } from 'src/settings/Settings';
@@ -148,6 +149,7 @@ export class CodeHighlighter {
 				pluginTextMarkers(),
 				pluginLineNumbers(),
 				pluginFrames(),
+				pluginColorChips(),
 			],
 			styleOverrides: getECTheme(this.plugin.loadedSettings),
 			minSyntaxHighlightingColorContrast: 0,
