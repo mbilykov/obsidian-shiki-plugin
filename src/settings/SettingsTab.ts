@@ -32,7 +32,7 @@ export class ShikiSettingsTab extends PluginSettingTab {
 					.setButtonText('Reload Highlighter')
 					.onClick(async () => {
 						button.setDisabled(true);
-						await this.plugin.reloadHighlighter();
+						await this.autoReloadHighlighter();
 						button.setDisabled(false);
 					});
 			});
@@ -46,7 +46,7 @@ export class ShikiSettingsTab extends PluginSettingTab {
 					this.plugin.settings.theme = value;
 					await this.plugin.saveSettings();
 
-					await this.plugin.reloadHighlighter();
+					await this.autoReloadHighlighter();
 				});
 			});
 
@@ -118,7 +118,7 @@ export class ShikiSettingsTab extends PluginSettingTab {
 					this.plugin.settings.preferThemeColors = value;
 					await this.plugin.saveSettings();
 
-					await this.plugin.reloadHighlighter();
+					await this.autoReloadHighlighter();
 				});
 			});
 
@@ -160,5 +160,9 @@ export class ShikiSettingsTab extends PluginSettingTab {
 					});
 			});
 		}
+	}
+
+	async autoReloadHighlighter(): Promise<void> {
+		await this.plugin.reloadHighlighter();
 	}
 }
